@@ -5,8 +5,8 @@ import { Metadata } from '../service/metadata';
 
 /* istanbul ignore next */
 export async function preview(req: Request, res: Response) {
-  // #swagger.description = 'ENS NFT preview'
-  // #swagger.parameters['name'] = { type: 'string', description: 'ENS name.' }
+  // #swagger.description = 'MNS NFT preview'
+  // #swagger.parameters['name'] = { type: 'string', description: 'MNS name.' }
   res.setTimeout(RESPONSE_TIMEOUT, () => {
     res.status(504).json({ message: 'Timeout' });
   });
@@ -15,7 +15,7 @@ export async function preview(req: Request, res: Response) {
 
   try {
     if (!name || name.length < 7 || !name.endsWith('.mon')) {
-      throw Error(`${name} is not an ENS name.`);
+      throw Error(`${name} is not an MNS name.`);
     }
     const metadata = new Metadata({
       name,

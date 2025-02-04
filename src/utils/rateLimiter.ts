@@ -22,7 +22,7 @@ if (REDIS_URL) {
     duration: 2,  // Per second(s)
     execEvenly: false,  // Do not delay actions evenly
     blockDuration: 0,   // Do not block the caller if consumed more than points
-    keyPrefix: 'ensrl', // Assign unique keys for each limiters with different purposes
+    keyPrefix: 'mnsrl', // Assign unique keys for each limiters with different purposes
   };
 
   rateLimiter = new RateLimiterRedis(opts);

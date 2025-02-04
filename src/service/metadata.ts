@@ -86,7 +86,7 @@ export class Metadata {
   }
 
   formatDescription(name: string, description?: string) {
-    const baseDescription = description || `${this.name}, an ENS name.`;
+    const baseDescription = description || `${this.name}, an MNS name.`;
     const normalizedNote = !this.is_normalized
       ? ` (${name} is not in normalized form)`
       : '';

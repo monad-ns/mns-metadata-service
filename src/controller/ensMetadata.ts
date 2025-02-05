@@ -77,7 +77,7 @@ export async function ensMetadata(req: Request, res: Response) {
     }
 
     try {
-      // Here is the case; if subgraph did not index fresh ENS name but registry has the record,
+      // Here is the case; if subgraph did not index fresh MNS name but registry has the record,
       // instead of 'not found' send positive unknown metadata information
       const registry = new Contract(
         ADDRESS_ETH_REGISTRY,
@@ -89,13 +89,13 @@ export async function ensMetadata(req: Request, res: Response) {
       }
       const _namehash = constructEthNameHash(tokenId, Version.v1);
       const isRecordExist = await registry.recordExists(_namehash);
-      assert(isRecordExist, 'ENS name does not exist');
+      assert(isRecordExist, 'MNS name does not exist');
 
       // When entry is not available on subgraph yet,
       // return unknown name metadata with 200 status code
       const { url, ...unknownMetadata } = new Metadata({
         name: 'unknown.name',
-        description: 'Unknown ENS name',
+        description: 'Unknown MNS name',
         created_date: 1580346653000,
         tokenId: '',
         version: Version.v1,

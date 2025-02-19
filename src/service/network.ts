@@ -61,7 +61,10 @@ export default function getNetwork(network: NetworkName): {
     case NETWORK.SEPOLIA:
       SUBGRAPH_URL = process.env.GRAPH_API_URL?.toString()
       break;
-    case NETWORK.MONAD:
+    case NETWORK.MONAD_TESTNET:
+      SUBGRAPH_URL = process.env.GRAPH_API_URL?.toString()
+      break;
+      case NETWORK.MONAD:
       SUBGRAPH_URL = process.env.GRAPH_API_URL?.toString()
       break;
     default:

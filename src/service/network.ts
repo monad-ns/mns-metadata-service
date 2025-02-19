@@ -21,6 +21,7 @@ export const NETWORK = {
   GOERLI : 'goerli',
   SEPOLIA : 'sepolia',
   MAINNET: 'mainnet',
+  MONAD_TESTNET: 'monad-testnet',
   MONAD: 'monad',
 } as const;
 
@@ -61,7 +62,7 @@ export default function getNetwork(network: NetworkName): {
       SUBGRAPH_URL = process.env.GRAPH_API_URL?.toString()
       break;
     case NETWORK.MONAD:
-      SUBGRAPH_URL = 'https://api.studio.thegraph.com/query/31812/mns-subgraph-test/version/latest';
+      SUBGRAPH_URL = process.env.GRAPH_API_URL?.toString()
       break;
     default:
       throw new UnsupportedNetwork(`Unknown network '${network}'`, 501);
